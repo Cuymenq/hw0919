@@ -13,3 +13,21 @@ class Post(db.Model):
     title = db.Column(db.String(250))
     body = db.Column(db.String(1200))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))  
+
+class Car(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    make = db.Column(db.String(150))
+    model = db.Column(db.String(50))
+    year = db.Column(db.String(50))
+    price = db.Column(db.String)
+    date_created = db.Column(db.String(50))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))  
+
+# id
+# make
+# model
+# year
+# color
+# price
+# date_created
+# user_id (the user that posted the car for sale)
