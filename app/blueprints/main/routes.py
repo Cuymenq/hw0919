@@ -4,21 +4,23 @@ from app.blueprints.main.models import Car
 from app import db
 
 
+logged_in_user=1
 @app.route('/')
 def home():
-    return render_template('home.html')
+    cars = Car.query.all()
+    return render_template('home.html', cars=cars)
 
 @app.route('/about')
 def about():
     return render_template('about.html')
 
-@app.route('/car')
+@app.route('/car', methods=['POST'])
 def create_car():
-    car_make = request.form['make']
-    car_model = request.form['model']
-    car_year = request.form['year']
-    car_color = request.form['color']
-    car_price = request.form['price']
+    car_make = request.form['Make']
+    car_model = request.form['Model']
+    car_year = request.form['Year']
+    car_color = request.form['Color']
+    car_price = request.form['Price']
     # print(car_make,car_model,car_year,car_color,car_price)
     new_car = Car(make=car_make, model=car_model, year=car_year, color=car_color, price=car_price, user_id=1)
 

@@ -4,7 +4,7 @@
 <h1>Welcome to the Home page</h1>
 <h2>Create car</h2>
 
-<form action=" {{ url_for('main.create_car')}}" method="POST" class="my-2">
+<form action="{{ url_for('main.create_car')}}" method="POST" class="my-2">
     <div class="form-group">
         <label for="Make">Make</label>
         <input type="text" class="form-control" id="Make" name="Make">
